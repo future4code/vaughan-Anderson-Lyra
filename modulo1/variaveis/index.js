@@ -1,3 +1,9 @@
+
+//Exercicio 1
+/*
+const ecercicio1 = 3 + 4
+console.log("exercicio1", exercicio1)
+*/
 /*
 let a = 10
 let b = 10

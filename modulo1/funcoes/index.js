@@ -46,7 +46,7 @@ console.log(resposta)
 //ESCRITA DE CODIGO
 //Exercicio 1
 //a)
-
+/*
 function mensagemSobreMim() {
 return textoSMim = "Eu sou Caio, tenho 23 anos, moro em São Paulo e sou estudante."
 }
@@ -56,19 +56,92 @@ console.log(mensagemSobreMim())
  
  function mudancaDeParam (nome, idade, cidade, souEstudante) {
     
-    //nome = "Anderson"
-    //idade = 38
-    //cidade = "Curitiba"
-    //souEstudande = "Labenu"
- 
+    
 console.log(`Eu sou o ${nome}, tenho ${idade}, moro em ${cidade} e sou ${souEstudante}.`)
  }
 mudancaDeParam("Anderson", "38","Curitiba", "Labenu")
 
+//b)
+
+function parametro4(nomePessoa, idadePessoa, cidadePessoa, profissao) {
+
+    console.log(`Eu sou ${nomePessoa}, tenho ${idadePessoa}, moro em ${cidadePessoa} e sou ${profissao}.`)
+}
+parametro4("Laís", (Number("23")), "Rua Guarapari 190", "instrutora")  
+*/
+
+//Exercicio 2
+
+//a)
+/*
+const parametro2 = (numero1, numero2) => {
+const soma = (numero1 + numero2)
+console.log(soma)
+
+}
+
+parametro2(5, 6)
+*/
+
+//b)
+/*
+const parametro3 = (numero1, numero2) => {
+const maiorOuIgual = numero1 >= numero2
+console.log(maiorOuIgual)
+
+}
+parametro3(15, 5)
+parametro3(5, 6)
+*/
+
 //c)
+/*
+const parametro4 = numero1  => {
+const parOuImpar = numero1 % 2
+console.log(parOuImpar === 0)
+}
+parametro4(16)
+parametro4(13)
+*/
 
-function parametro4()
+//d)
+/*
+const parametro5 = texto  => {
+const fraseMais = mensagem.toLocaleUpperCase
+
+    console.log(texto)
+}
+const mensagem = prompt("Escreva um texto")
+Console.log(mensagem.length)
+*/
+
+//Exercicio 3
 
 
+/*
+function soma(numero1, numero2) {
+    console.log(numero1 + numero2)
+} 
+
+function diferenca(numero1, numero2) {
+    console.log(numero1 - numero2)
+}
+
+function multiplicacao(numero1, numero2) {
+    console.log(numero1 * numero2)
+}
+
+function divisao(numero1, numero2) {
+    console.log(numero1 / numero2)
+}
+
+numero1 = Number(prompt("Digite um numero"))
+numero2 = Number(prompt("Digite outro numero"))
 
 
+console.log(`Numeros informados:  ${numero1} e ${numero2}`)
+console.log(`Soma:  ${soma(numero1, numero2)}`)
+console.log(`Diferença:  ${diferenca(numero1, numero2)}`)
+console.log(`Multiplicação:  ${multiplicacao(numero1, numero2)}`)
+console.log(`Divisão:  ${divisao(numero1, numero2)}`)
+*/

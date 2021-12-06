@@ -68,10 +68,10 @@ function imprimeTresCoresFavoritas() {
 function retornaStringEmMaiuscula(string) {
   
 
-  console.log(string.toUpperCase())
+  return(string.toUpperCase())
 
 }
-console.log
+
 
 // EXERCÍCIO 07
 function calculaIngressosEspetaculo(custo, valorIngresso) {
@@ -82,25 +82,29 @@ function calculaIngressosEspetaculo(custo, valorIngresso) {
 
 // EXERCÍCIO 08
 function checaStringsMesmoTamanho(string1, string2) {
-  return string1 === string2
+  
+  return ((string1.length) === (string2.length))
 
 }
 
 // EXERCÍCIO 09
 function retornaPrimeiroElemento(array) {
-  // implemente sua lógica aqui
+  return array[0]
 
 }
 
 // EXERCÍCIO 10
 function retornaUltimoElemento(array) {
-  // implemente sua lógica aqui
-
+  const ultimo = array[array.length - 1]
+  console.log(ultimo)
 }
 
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
-  // implemente sua lógica aqui
+  const primeiroEle = array[0]
+  
+  const removeUlt = array.pop()
+    
 
 }
 

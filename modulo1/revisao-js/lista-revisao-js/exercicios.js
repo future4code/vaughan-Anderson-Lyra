@@ -15,41 +15,44 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-    if (compararNumeros(a, b)) {
+      let numeros = array.sort(function(a, b) {
         return a - b
+      })
+      return numeros
+    
+      
 }
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
     const par = array.filter(x => x % 2 === 0)
+    
     return par
 }
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+    const par = array.filter(x => x % 2 === 0)
+    
+    const parQuadrado = function(array) {
+        return array ** 2
+    } 
+    const parQuadrado = array.filter(par).map(parQuadrado)
+        return parQuadrado
+   
+    
 }
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-    let maiorNumero = 0
-        
-    const acharMaiorNumero = (array) => {
-        for (numero of array) {
-            if (maiorNumero < numero) {
-                maiorNumero = numero
-            }
-        }
-        return maiorNumero
-    }
-     acharMaiorNumero(array)   
-
-        
+    Array.max = function(array) {
+        return Math.max.apply(Math, array)
+}   
 }
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-    let maiorNumero = 
+    
 }
 
 // EXERCÍCIO 08

@@ -15,8 +15,8 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-    const ordem = ((a, b), a - b)
-        return ordem.sort(retornaArrayOrdenado)
+    if (compararNumeros(a, b)) {
+        return a - b
 }
 
 // EXERCÍCIO 04
@@ -32,12 +32,24 @@ function retornaNumerosParesElevadosADois(array) {
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  
+    let maiorNumero = 0
+        
+    const acharMaiorNumero = (array) => {
+        for (numero of array) {
+            if (maiorNumero < numero) {
+                maiorNumero = numero
+            }
+        }
+        return maiorNumero
+    }
+     acharMaiorNumero(array)   
+
+        
 }
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-
+    let maiorNumero = 
 }
 
 // EXERCÍCIO 08

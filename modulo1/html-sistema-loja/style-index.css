@@ -1,0 +1,33 @@
+.titulo{
+    background-color: black;
+    color: blanchedalmond;
+    text-align: center;
+    padding: 15px;
+    font-size: 50px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.subtitulo{
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 5;
+    font-style: oblique;
+    letter-spacing: 5px;
+}
+
+.paginas{
+    padding-right: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.texto{
+    line-height: 10;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+

@@ -26,7 +26,7 @@ button:focus {
 }
 
 img {
-    width: 100px;
+    width: 50px;
 }
 
 div>p:first-child {
@@ -34,7 +34,7 @@ div>p:first-child {
 }
 
 div img {
-    background: black;
+    background: ;
 }
 
 .botao-amarelo {
@@ -106,6 +106,10 @@ div:last-child {
 table {
     width: 60%;
     margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    
+    
 }
 
 td button {
@@ -114,6 +118,7 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
+        
 }
 
 .container-do-search {
@@ -131,6 +136,7 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    
     
 }
 

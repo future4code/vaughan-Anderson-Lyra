@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 
 //Não entendo pq os componentes do 'styled-components' não estão funcionando.
-/*
-const cardList = styled.div`
+
+/* const cardList = styled.div`
     border: 1px solid black;
     padding: 10px;
     display: flex;
@@ -16,7 +16,7 @@ const cardList = styled.div`
         cursor: pointer;
         background-color: lightblue;
     }    
-`
+ `
 */
 
 

@@ -50,7 +50,7 @@ const Post = (props) => {
     comentarios.map(comentario => {
       return (
         <CommentContainer>
-          <p>{comentario}</p>
+          <p> {comentario} </p>
         </CommentContainer>
       )
     })

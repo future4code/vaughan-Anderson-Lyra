@@ -145,3 +145,26 @@ console.log(`Diferença:  ${diferenca(numero1, numero2)}`)
 console.log(`Multiplicação:  ${multiplicacao(numero1, numero2)}`)
 console.log(`Divisão:  ${divisao(numero1, numero2)}`)
 */
+
+
+function programa () {
+    const lado1 = prompt("Digite o valor A: ");
+    const lado2 = prompt("Digite o valor B: ");
+    const lado3 = prompt("Digite o valor C: ");
+
+    if (lado1<lado2+lado3) {
+        if (lado2<lado1+lado3) {
+            if (lado3<lado1+lado2) {
+                alert("O triângulo existe.");
+            }
+            else
+                alert("O triângulo não existe.");
+        }
+        else
+            alert("O triângulo não existe.");
+    }
+    else
+     alert("O triângulo não existe.");
+}
+
+console.log (programa)

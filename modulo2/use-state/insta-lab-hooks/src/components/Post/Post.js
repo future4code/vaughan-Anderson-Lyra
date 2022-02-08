@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
-
 import { PostContainer, PostHeader, UserPhoto, PostPhoto, PostFooter, CommentContainer } from './styles'
-
 import IconeComContador from '../IconeComContador/IconeComContador'
 import SecaoComentario from '../SecaoComentario/SecaoComentario'
-
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'

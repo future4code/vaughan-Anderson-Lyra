@@ -6,7 +6,7 @@ const Header = () => {
     <HeaderContainer>
       <button>Home</button>
       <h1>astromatch</h1>
-      <button>Lista</button>
+      <button >Lista</button>
     </HeaderContainer>
   );
 }

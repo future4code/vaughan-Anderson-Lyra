@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { BASE_URL } from "./constants/url";
+import { BASE_URL } from "../constants/url";
 
 
 
-const ListaDeMatches = (props) => {
+const ListaDeMatches = () => {
     const [match, setMatch] = useState([])
 
     const getMetch = () => {
@@ -20,7 +20,7 @@ const ListaDeMatches = (props) => {
  
     return (
         <div>
-           <ListaDeMatches/>
+          Lista de Matches
         </div>
     )
 }

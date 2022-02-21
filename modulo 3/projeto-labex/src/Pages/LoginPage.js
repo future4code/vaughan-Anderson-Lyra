@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { URL_BASE } from "../costants/url";
 
 
 export const LoginPage = () => {
@@ -22,14 +23,15 @@ export const LoginPage = () => {
             email: email,
             password: password
         }
-        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/anderson-vaughan/login", body)
+        axios.post(`${URL_BASE}/login`, body)
         .then((response) => {
         console.log('Deu certo:',response.data.token)
         localStorage.setItem('token',response.data.token)
+            history('/admin/trips/list')
 
         })
         .catch((error) => {
-            console.log('Deu errado:',error.response)
+            console.log('Deu errado:',error.response.data.message)
         })
     }   
 

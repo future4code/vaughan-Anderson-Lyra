@@ -90,4 +90,16 @@ console.log(listaArm)
 */
 
 
+//Escreva um programa que retorne a soma do 3 maiores numeros. 
 
+
+/*const somaNumerosMaiores = (a, b, c) => {
+    let array = [a, b, c]
+    let arrayOrdemDecrescente = array.sort((a, b) => b - a)
+    
+    let maiorNumero = arrayOrdemCrescente[0]
+    let segundoMaiorNumero = arrayOrdemCrescente[1]
+    
+    return maiorNumero + segundoMaiorNumero
+    }
+*/

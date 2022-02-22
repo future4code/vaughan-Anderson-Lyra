@@ -1,0 +1,1 @@
+export const BASE_URL = "http://swapi.py4e.com/api"

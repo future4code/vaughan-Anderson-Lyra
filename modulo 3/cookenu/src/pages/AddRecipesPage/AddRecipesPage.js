@@ -1,12 +1,12 @@
 import React from "react";
 
-const FeedList = () => {
+const AddRecipesPage = () => {
     return (
         <div>
-            <h1>FeedList</h1>
+            <h1>AddRecipesPage</h1>
                         
         </div>
     )
 }
 
-export default FeedList
+export default AddRecipesPage

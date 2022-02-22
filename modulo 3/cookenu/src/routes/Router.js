@@ -1,33 +1,39 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom"
-import Cadastros from '../pages/Cadastros/Cadastros';
+import AddRecipesPage from "../pages/AddRecipesPage/AddRecipesPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import FeedList from '../pages/FeedList/FeedList';
 import LoginPage from '../pages/LoginPage/LoginPage';
-import PostPage from '../pages/PostPage/PostPage';
+import RecipeDetailPage from "../pages/RecipeDetailPage/RecipeDetailPage";
+import SignUpPage from "../pages/SignUpPage/SignUpPage";
+import RecipesListPage from "../pages/RecipesListPage/RecipesListPage";
+
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/">
+                <Route exact path="/login">
                     <LoginPage />
                 </Route>
 
-                <Route exact path="/feedlist">
-                    <FeedList />
+                <Route exact path="/cadastro">
+                    <SignUpPage />
                 </Route>
 
-                <Route exact path="/cadastro">
-                    <Cadastros />
+                <Route exact path="/">
+                    <RecipesListPage />
                 </Route>
-                
-                <Route exact path="/postpage">
-                    <PostPage />
+
+                <Route exact path="/addrecipespage">
+                    <AddRecipesPage />
+                </Route>
+
+                <Route exact path="/recipedetailpage">
+                    <RecipeDetailPage />
                 </Route>
 
                 <Route >
-                    <ErrorPage/>
+                    <ErrorPage />
                 </Route>
             </Switch>
         </BrowserRouter>

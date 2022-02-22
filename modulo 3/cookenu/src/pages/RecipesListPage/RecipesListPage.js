@@ -1,12 +1,12 @@
 import React from "react";
 
-const PostPage = () => {
+const RecipesListPage = () => {
     return (
         <div>
-            <h1>PostPage</h1>
+            <h1>RecipesListPage</h1>
                         
         </div>
     )
 }
 
-export default PostPage
+export default RecipesListPage

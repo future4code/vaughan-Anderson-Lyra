@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { BrowserRouter, Switch, Route, Routes } from "react-router-dom"
 import AddRecipesPage from "../pages/AddRecipesPage/AddRecipesPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import LoginPage from '../pages/LoginPage/LoginPage';
@@ -12,29 +12,21 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/login">
-                    <LoginPage />
-                </Route>
+                <Routes>
 
-                <Route exact path="/cadastro">
-                    <SignUpPage />
-                </Route>
+                    <Route exact path='/login' element={<LoginPage />} />
 
-                <Route exact path="/">
-                    <RecipesListPage />
-                </Route>
+                    <Route exact path='/cadastro' element={<SignUpPage />} />
 
-                <Route exact path="/addrecipespage">
-                    <AddRecipesPage />
-                </Route>
+                    <Route exact path='/' element={<RecipesListPage />} />
 
-                <Route exact path="/recipedetailpage">
-                    <RecipeDetailPage />
-                </Route>
+                    <Route exact path='/adicionar-receita' element={<AddRecipesPage />} />
 
-                <Route >
-                    <ErrorPage />
-                </Route>
+                    <Route exact path='/detalhe/:id' element={<RecipeDetailPage />} />
+
+                    <Route exact path='/error' element={<ErrorPage />} />
+
+                </Routes>
             </Switch>
         </BrowserRouter>
     )

@@ -1,21 +1,21 @@
-export  const history = useNavigate()
 
-export const goToLogin = (history) => {
-    history('/login')
+
+export const goToLogin = (navigate) => {
+    navigate('/login')
 }
 
-export const goToSignUp = (history) => {
-    history('/cadastro')
+export const goToSignUp = (navigate) => {
+    navigate('/cadastro')
 }
 
-export const goToAddRecipes = (history) => {
-    history('/adicionar-receita')
+export const goToAddRecipes = (navigate) => {
+    navigate('/adicionar-receita')
 }
 
-export const goToRecipeDetail = (history) => {
-    history(`/detalhe/${id}`)
-}
+//export const goToRecipeDetail = (navigate) => {
+//    navigate(`/detalhe/${id}`)
+//}
 
-export const goToRecipesList = (history) => {
-    history('/')
+export const goToRecipesList = (navigate) => {
+    navigate('/')
 }

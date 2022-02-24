@@ -1,29 +1,24 @@
 import React from "react";
 import { InputsContainer } from "./styled";
-import axios from "axios"
-import { BASE_URL} from "../../constants/url"
 import useForm from "../../hooks/useForm";
 import { Button, TextField } from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
+import { login } from "../../service/user";
+
 
 
 const LoginForm = () => {
     const [form, onChange, clear] = useForm({email: "", password: ""})
+    const navigate = useNavigate()
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        console.log(form)
+        login(form, clear, navigate)
     }
 
-    const login = () => {
-        axios.post(`${BASE_URL}/user/login`)
-        .then((response) => {
-            console.log(response)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-    }
    
+
+  
 
     return (
             <InputsContainer>
@@ -55,7 +50,7 @@ const LoginForm = () => {
                         fullWidth   
                         variant={"contained"}
                         color={"primary"}
-                        margin={"dense"} 
+                         
                     >
                         FAZER LOGIN!
 

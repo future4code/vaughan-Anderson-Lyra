@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button'
 import { InputsContainer, SignUpFormContainer } from './styled'
 import useForm from '../../hooks/useForm'
 import { useNavigate } from 'react-router-dom'
+import { signUp } from '../../service/user'
 
 const SignUpForm = () => {
   const navegate = useNavigate()
@@ -12,7 +13,7 @@ const SignUpForm = () => {
 
   const onSubmitForm = (event) => {
     event.preventDefault()
-    console.log(form)
+    signUp(form, clear, navegate)
   }
 
   return (

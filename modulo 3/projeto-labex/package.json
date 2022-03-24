@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
+  "dependencies": {
+    "react-router-dom": "^6.2.1"
+=======
   "name": "projeto-labex",
   "version": "0.1.0",
   "private": true,
@@ -37,5 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+>>>>>>> 19e9ce5037583f8613dea9c2d2ace99a8f71f4da
   }
 }

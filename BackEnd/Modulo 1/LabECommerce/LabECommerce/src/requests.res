@@ -1,4 +1,4 @@
-GET http://localhost:3003/character
+GET http://localhost:3003/users/1
 
 
 ###

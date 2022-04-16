@@ -1,13 +1,12 @@
 import app from "./app"
-import createCharacter from "./endpoints/createCharacter"
-import createUser from './endpoints/createUser'
-import deleteCharacter from "./endpoints/deleteCharacter"
-import getAllCharacters from "./endpoints/getAllCharacters"
+import createUsers from "./endpoints/createUsers"
+import deleteUsers from "./endpoints/deleteUsers"
+import getAllUsers from "./endpoints/getAllUsers"
 
 
-app.get('/character', getAllCharacters),
-app.put('/character', createCharacter)
-app.delete('/character/:id', deleteCharacter)
+
+app.get('/users', getAllUsers),
+app.put('/users', createUsers)
+app.delete('/users/:id', deleteUsers)
 
 
-app.post('/users/signup', createUser)

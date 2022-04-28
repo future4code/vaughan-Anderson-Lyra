@@ -7,15 +7,15 @@ export interface AuthenticationData {
 }
 
 export class Authenticator {
-    public generateToken(input: AuthenticationData): string {
+    public generate(input: AuthenticationData): string {
         const token = jwt.sign(input, process.env.JWT_KEY as string , {
-                expiresIn: process.env.JWT_EXPIRES_IN
+                expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN
             });
         return token;
     }
 
     public getTokenData(token: string): AuthenticationData {
-        const data = jwt.verify(token, process.env.JWT_KEY as string) as any;
+        const data = jwt.verify(token, process.env.JWT_KEY as string);
         return data as AuthenticationData;
     }
 }

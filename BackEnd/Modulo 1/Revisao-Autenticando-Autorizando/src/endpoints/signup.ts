@@ -16,7 +16,7 @@ export async function signup(req: Request, res: Response) {
         
         const userDataBase = new UserDatabase();
         const user = await userDataBase.findUserByEmail(email);
-        if (await user) {
+        if (user) {
             res.status(409).send("Email ja esta em uso");
         }
 
@@ -30,7 +30,7 @@ export async function signup(req: Request, res: Response) {
         await userDataBase.createUser(newUser);
 
         const authenticator = new Authenticator();
-        const token = authenticator.generateToken({id, role})
+        const token = authenticator.generate({id, role})
             
         res.status(200).send({message: 'Usuario criado com sucesso', token});
 

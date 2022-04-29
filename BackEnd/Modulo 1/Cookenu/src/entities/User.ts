@@ -5,14 +5,14 @@ export enum USER_ROLE {
 }
 
 export class User {
-  
+
     constructor(
         private id: string,
-        private name: string, 
+        private name: string,
         private email: string,
         private password: string,
         private role: USER_ROLE
-    ) {}
+    ) { }
 
     getId(): string {
         return this.id;
@@ -30,14 +30,14 @@ export class User {
         return this.role;
     }
 
-        static toUserModel(user: any): User {
-            return new User(
-                user.id,
-                user.name,
-                user.email,
-                user.password,
-                user.role
-            )
-        }
-
+    static toUserModel(user: any): User {
+        return new User(
+            user.id,
+            user.name,
+            user.email,
+            user.password,
+            user.role
+        )
     }
+
+}

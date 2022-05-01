@@ -8,6 +8,7 @@ export class Recipes {
         public title: string,
         public description: string,
         
+        
     ) { }
 
     getId(): string {

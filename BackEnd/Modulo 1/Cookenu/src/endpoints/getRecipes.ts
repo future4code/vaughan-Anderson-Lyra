@@ -8,6 +8,10 @@ import { Authenticator } from '../Services/Authenticator';
 export const getRecipes = async (req: Request, res: Response) => {
     try {
 
+            
+
+
+
         const id = req.params.id;
 
         const recipeDatabase = new RecipeDatabase();
@@ -29,12 +33,13 @@ export const getRecipes = async (req: Request, res: Response) => {
             id: recipe.getId(),
             title: recipe.getTitle(),
             description: recipe.getDescription(),
+
             
         });
 
     } catch (error:any) {
         res.status(400).send({
-            message: error.message
+            message: error.sqlMessage || error.message
         });
 
     }

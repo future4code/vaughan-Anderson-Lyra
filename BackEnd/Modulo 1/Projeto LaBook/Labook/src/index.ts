@@ -1,30 +1,20 @@
-import express, { Express, Request, Response } from "express"
-import cors from "cors"
-import knex from "knex"
-import dotenv from "dotenv"
-import Knex from "knex"
-import { PostController } from "./controller/PostController"
+import UserBusiness from "./business/UserBusiness";
+import { app } from "./controller/app";
+import { UserController } from "./controller/UserController";
+import { UserData } from "./data/UserData";
+import { Authenticator } from "./services/Authenticator";
+import { HashManager } from "./services/HashManager";
+import { IdGenerator } from "./services/IdGenerator";
 
+const userBusiness = new UserBusiness(
+    new UserData(),
+    new IdGenerator(),
+    new HashManager(),
+    new Authenticator()
+)
 
-dotenv.config()
+const userController = new UserController(
+    userBusiness
+);
 
-const app: Express = express()
-app.use(express.json())
-app.use(cors())
-
-export const connection: Knex = knex({
-   client: "mysql",
-   connection: {
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_SCHEMA,
-      port: 3306,
-      multipleStatements: true
-   }
-})
-
-const postController = new PostController()
-
-
-app.post("/post", postController.createPost )
+app.post("/user/signup", userController.signup)

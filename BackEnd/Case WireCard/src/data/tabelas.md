@@ -1,11 +1,3 @@
-import { BaseDatabase } from "./BaseDatabase"
-
-
-
-class Migrations extends BaseDatabase {
-
-    async createTable() {
-        await this.getConnection().raw(`
         create table wirecard_client(
             id VARCHAR(255) PRIMARY KEY,
             name VARCHAR(255)
@@ -25,11 +17,3 @@ class Migrations extends BaseDatabase {
             id_client VARCHAR(255),
             foreign key (id_client) references wirecard_client(id)
         );
-        `)
-        console.log("Table created successfully")
-    }
-}
-
-const createTableMigration = new Migrations()
-createTableMigration.createTable()
-

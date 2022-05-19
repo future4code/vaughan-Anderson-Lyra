@@ -5,6 +5,8 @@ export class Client {
         private name: string
     ){}
 
+   
+
     static clientModel(client: Client) {
         return new Client(client.id, client.name)
     }

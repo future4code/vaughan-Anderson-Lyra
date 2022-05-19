@@ -13,10 +13,10 @@ export class ClientController {
             const input: ClientInsert = {
                 name
             }
-            console.log("Cheguei aqui 1")
+            
             const clientBusiness = new ClientBusiness()
             const clientMessage = await clientBusiness.insertClient(input)
-            console.log("Cheguei aqui 2")
+           
             res.status(200).send({clientMessage})
 
         } catch (error) {

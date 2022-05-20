@@ -1,11 +1,3 @@
-import { BaseDatabase } from "./BaseDatabase"
-
-
-
-class Migrations extends BaseDatabase {
-
-    async createTable() {
-        await this.getConnection().raw(`
         create table wirecard_client(
             id VARCHAR(255) PRIMARY KEY,
             name VARCHAR(255)
@@ -23,14 +15,5 @@ class Migrations extends BaseDatabase {
             card_expiration DATE,
             card_cvv VARCHAR(255),
             id_client VARCHAR(255),
-            foreign key (id_client) references wirecard_client(id),
-            statusPayment VARCHAR(45)
+            foreign key (id_client) references wirecard_client(id)
         );
-        `)
-        console.log("Table created successfully")
-    }
-}
-
-const createTableMigration = new Migrations()
-createTableMigration.createTable()
-

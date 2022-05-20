@@ -23,8 +23,7 @@ class Migrations extends BaseDatabase {
             card_expiration DATE,
             card_cvv VARCHAR(255),
             id_client VARCHAR(255),
-            foreign key (id_client) references wirecard_client(id),
-            statusPayment VARCHAR(45)
+            foreign key (id_client) references wirecard_client(id)
         );
         `)
         console.log("Table created successfully")

@@ -1,6 +1,6 @@
 import { PaymentDataBase } from "../data/PaymentDataBase"
 import { ErrorComplet } from "../error/ErrorComplet"
-import { PaymentInputDTO, PaymentInsert, TYPE } from "../model/Payment"
+import { PaymentInputDTO, PaymentInsert, STATUS, TYPE } from "../model/Payment"
 import { IdGenerator } from "../services/IdGenerator"
 
 
@@ -23,6 +23,7 @@ export class PaymentBusiness {
                 throw new ErrorComplet()
             }
 
+           
             const idGenerator = new IdGenerator()
 
             const paymentCard: PaymentInputDTO = {
@@ -36,7 +37,8 @@ export class PaymentBusiness {
                 card_number: input.card_number,
                 card_expiration: input.card_expiration,
                 card_cvv: input.card_cvv,
-                id_client: input.id_client
+                id_client: input.id_client,
+                statusPayment: STATUS.CONFIRMED
             }
 
             if (input.cpf.length !== 11) {
@@ -56,7 +58,7 @@ export class PaymentBusiness {
             }
 
             await paymentDataBase.insertPayment(paymentCard)
-            const information = `Compra realizada com sucesso, segue o numero do comprovante , ${paymentCard.id}`
+            const information = `Status da Compra: ${STATUS.CONFIRMED},  Comprovante do Pagamento:  ${paymentCard.id}`
 
             return information
         }
@@ -64,6 +66,7 @@ export class PaymentBusiness {
 
         if (input.type === TYPE.BOLETO) {
 
+           
             const idGenerator = new IdGenerator()
             const paymentBank: PaymentInputDTO = {
                 id: idGenerator.generate(),
@@ -72,7 +75,8 @@ export class PaymentBusiness {
                 cpf: input.cpf,
                 amount: input.amount,
                 type: input.type,
-                id_client: input.id_client
+                id_client: input.id_client,
+                statusPayment: STATUS.PENDING
             }
 
             await paymentDataBase.insertPayment(paymentBank)
@@ -92,8 +96,8 @@ export class PaymentBusiness {
             let number7 = getRandomIntInclusive(0, 9)
             let number8 = getRandomIntInclusive(0, 99999999999999)
 
-            return (`${number} ${number2} ${number3} ${number4} ${number5} ${number6} ${number7} ${number8}`)
-
+           const codigoDeBarras = (`${number} ${number2} ${number3} ${number4} ${number5} ${number6} ${number7} ${number8}`)
+            return (`Status da Compra: ${STATUS.PENDING},  Codigo de Barras para Pagamento:  ${codigoDeBarras}`)
 
         }
 

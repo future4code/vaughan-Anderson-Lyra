@@ -9,7 +9,7 @@ export class PaymentController {
         try {
             const {
                 name, email, cpf, amount, type, card_holder, card_number,
-                card_expiration, card_cvv, id_client
+                card_expiration, card_cvv, id_client, statusPayment
             } = req.body
             
             const input: PaymentInsert = {
@@ -22,7 +22,8 @@ export class PaymentController {
                 card_number,
                 card_expiration,
                 card_cvv,
-                id_client
+                id_client,
+                statusPayment
             }
 
             const paymentBusiness = new PaymentBusiness()
@@ -57,4 +58,6 @@ export class PaymentController {
             }
         }
     }
+
+
 }

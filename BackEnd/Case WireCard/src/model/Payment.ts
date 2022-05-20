@@ -11,7 +11,8 @@ export class Payment {
         private card_expiration: string,
         private card_cvv: string,
         private id_client: string,
-        private id_buyer: string
+        private id_buyer: string,
+        private statusPayment: string
     ) { }
 
     static paymenttModel(payment: Payment) {
@@ -27,7 +28,8 @@ export class Payment {
             payment.card_expiration,
             payment.card_cvv,
             payment.id_client,
-            payment.id_buyer
+            payment.id_buyer,
+            payment.statusPayment
         )
     }
 }
@@ -35,6 +37,11 @@ export class Payment {
 export enum TYPE {
     CARTAO = "Cartão de Crédito",
     BOLETO = "Boleto Bancário"
+}
+
+export enum STATUS {
+    PENDING = "PENDENTE",
+    CONFIRMED = "CONFIRMADO",
 }
 
 
@@ -49,6 +56,7 @@ export type PaymentInsert = {
     card_expiration?: string,
     card_cvv?: string,
     id_client: string,
+    statusPayment: STATUS
 }
 
 export interface PaymentInputDTO extends PaymentInsert {

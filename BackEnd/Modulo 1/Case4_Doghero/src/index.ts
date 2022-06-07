@@ -12,6 +12,32 @@ app.use(express.json());
 app.use(cors());
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
         const address = server.address() as AddressInfo;
@@ -22,14 +48,4 @@ const server = app.listen(process.env.PORT || 3003, () => {
 }
 );
 
-export const connection:Knex = knex({
-    client: 'mysql',
-    connection: {
-        host: process.env.DB_HOST,
-        port: Number(process.env.DB_PORT || 3306),
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_SCHEMA,
-    },
-});
 

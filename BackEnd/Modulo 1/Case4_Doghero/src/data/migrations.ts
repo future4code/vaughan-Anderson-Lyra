@@ -1,19 +1,32 @@
-import {connection} from '../../src/index';
+import { BaseDatabase } from "./BaseDatabase";
 
-connection.raw(`
-CREATE TABLE IF NOT EXISTS testUsers ( 
+
+class Migrations extends BaseDatabase {
+    public createTables = async (): Promise<void> => {
+        try {
+            await this.connection.raw(`
+CREATE TABLE IF NOT EXISTS DOGHERO (
     id VARCHAR(255) PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL 
+    status ENUM("A FAZER", "EM ANDAMENTO", "CONCLUIDO") DEFAULT "A FAZER",	
+    date_shedule DATE NOT NULL,
+    price FLOAT NOT NULL,
+    latitude VARCHAR(255) NOT NULL,
+    longitude VARCHAR(255) NOT NULL,
+    number_of_pets INT NOT NULL,
+    duration INT NOT NULL,
+    start_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    initial_date timestamp NOT NULL,
+    final_date timestamp NOT NULL
 );
+ `);
+            console.log("Tabelas criadas com sucesso");
+            await this.connection.destroy();
+        } catch (error: any) {
+            console.log(error.sqlMessage || error.message);
+            await this.connection.destroy();
+        }
+    };
+}
 
-//AQUI PODEM SER CRIADAS OUTRAS TABELAS OU QUALQUER COMANDO SQL 
-
-`).then(() => console.log(
-    "MySql tables were successfully created"
-)).catch(error => 
-    console.log(error.message)
-).finally(()=> {
-    connection.destroy()
-})
+new Migrations().createTables();

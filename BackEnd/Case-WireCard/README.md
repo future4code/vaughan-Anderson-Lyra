@@ -32,10 +32,12 @@ Cartão: registra e capta informações do cartão de crédito de um dono, armaz
 https://documenter.getpostman.com/view/19296981/Uyxoi43i
 
 
+
 ## PARA RODAR A APLICAÇÃO
 
 * npm install
 * npm run dev
+
 
 ## DESENVOLVEDOR
 

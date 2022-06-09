@@ -6,18 +6,18 @@ export class BaseError extends Error {
 
 export class InputError extends BaseError{
     constructor(message: string){
-        super(message, 417)
+        super(message, 419)
     }
 }
 
 export class NotFoundError extends BaseError{
     constructor(message: string){
-        super(message, 404)
+        super(message, 403)
     }
 }
 
 export class UnauthorizedError extends BaseError{
     constructor(message: string) {
-      super(message, 403);
+      super(message, 407);
     }
   }

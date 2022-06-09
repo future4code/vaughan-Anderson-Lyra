@@ -2,7 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import { AddressInfo } from 'net';
 import dotenv from 'dotenv';
-import { DogHeroRouter } from './routes/DogHeroRouter';
+import { dogHeroRouter} from './routes/DogHeroRouter';
+import { userTutorRouter } from './routes/UserTutorRouter';
 
 dotenv.config();
 
@@ -11,7 +12,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use("/signup", DogHeroRouter)
+app.use("/usertutor", userTutorRouter )
+app.use("/walking", dogHeroRouter)
 
 
 

@@ -1,68 +1,198 @@
 
+import { InputError } from "../error/BaseError"; 
 
-export class DogHeroWalking {
+export class Walk{
     constructor(
         private id: string,
-        private status: string,
-        private dateShedule: Date,
-        private price: number,
-        private latitude: string,
-        private longitude: string,
-        private numberOfPets: number,
-        private duration: number,
-        private startTime: string,
-        private endTime: string
-        
-    ) { }
-        
-public getId(): string {
-    return this.id;
-}
+        private dateWalk: Date,
+        private startWalk: Time,
+        private finishWalk: Time,
+        private time: string,
+        private latitude: number,
+        private longitude: number,
+        private quantityDogs: number,
+        private idTutor: string,
+        private status: Status,
+        private price?: number
+    ){}
 
-    public getStatus(): string {
-        return this.status;
+    getId(){
+        return this.id;
     }
 
-    public getDateShedule(): Date {
-        return this.dateShedule;
+    getDateWalk(){
+        return this.dateWalk;
     }
 
-    public getPrice(): number {
-        return this.price;
+    getStartWalk(){
+        return this.startWalk;
     }
 
-    public getLatitude(): string {
+    getTime(){
+        return this.time;
+    }
+
+    getLatitude(){
         return this.latitude;
     }
 
-    public getLongitude(): string {
+    getLongitude(){
         return this.longitude;
     }
 
-    public getNumberOfPets(): number {
-        return this.numberOfPets;
+
+    getIdTutor(){
+        return this.idTutor;
     }
 
-    public getDuration(): number {
-        return this.duration;
+    getQuantityDogs(){
+        return this.quantityDogs;
     }
 
-    public getStartTime(): string {
-        return this.startTime;
+    getStatus(){
+        return this.status;
     }
 
-    public getEndTime(): string {
-        return this.endTime;
+
+    getFinishWalk(){
+        return this.finishWalk;
     }
 
+    getPrice(){
+        return this.price
+    }
+
+
+    setId(id: string){
+        return this.id = id;
+    }
+
+    setDateWalk(dateWalk: Date){
+        return this.dateWalk = dateWalk;
+    }
+
+    setStartWalk(startWalk: any){
+        return this.startWalk = startWalk;
+    }
+
+    setFinishWalk(finishWalk: any){
+        return this.finishWalk = finishWalk;
+    }
+
+    setPrice(price: number){
+        return this.price = price;
+    }
+
+    setTime(time: Time){
+        return this.time = time;
+    }
+
+    setLatitude(latitude: number){
+        return this.latitude = latitude;
+    }
+
+    setLongitude(longitude: number){
+        return this.longitude = longitude;
+    }
+
+    setQuantityDogs(quantityDogs: number){
+        return this.quantityDogs = quantityDogs;
+    }
+
+    setIdTutor(idTutor: string){
+        return this.idTutor = idTutor;
+    }
+
+    setStatus(status: Status){
+        return this.status = status
+    }
+
+
+    static toTimeEnum(data?: any): Time{
+        switch(data){
+            case "30":
+                return Time.TRINTA
+            case "60":
+                return Time.SESSENTA
+            default:
+                throw new InputError("Invalid time. Deve ser 30min ou 60min")      
+            }
+    }
+
+    static toStatusEnum(data?: any): Status{
+        switch(data){
+            case "PENDENTE":
+                return Status.PENDENTE
+            case "CONCLUIDO":
+                return Status.CONCLUIDO
+            default:
+                throw new InputError("Invalid status. Deve ser PENDENTE ou CONCLUIDO")      
+            }
+    }
+
+    static toWalkModel(data?: any){
+        return (data && new Walk(
+            data.id,
+            data.date_walk || data.dateWalk,
+            data.startWalk || data.start_alk,
+            Walk.toTimeEnum(data.time),
+            data.latitude,
+            data.longitude,
+            data.quantityDogs || data.quantity_dogs,
+            data.idTutor || data.id_tutor,
+            Walk.toStatusEnum(data.status),
+            data.finishWalk || data.finish_walk,
+            data.price
+        ))
+    }
 }
 
-export interface DogHeroWalkingDTO {
-    id: string;
-    duration: number;
-    latitude: string;
-    longitude: string;
-    numberOfPets: number;
-    startTime: string;
-    endTime: string;
+export enum Time {
+    TRINTA = "30",
+    SESSENTA = "60"
+}
+
+export enum Status {
+    PENDENTE = "PENDENTE",
+    CONCLUIDO = "CONCLUIDO"
+}
+
+export interface WalkInputDTO{
+    dateWalk: Date,
+    startWalk: Time,
+    finishWalk: Time,
+    time: string,
+    latitude: number,
+    longitude: number,
+    quantityDogs: number,
+    idTutor: string
+}
+
+
+export interface WalkOutputDTO{
+    dateWalk: Date,
+    time: string,
+    latitude: number,
+    longitude: number,
+    quantityDogs: number,
+    idTutor: string,
+    status: string,
+    finishWalk: Date,
+    price: number
+}
+
+
+export interface WalkCalc{
+    quantityDogs: number,
+    startWalk: Time,
+    finishWalk: Date,
+    price: number
+}
+
+
+export interface EditWalkDTO{
+    id: string,
+    startWalk?: Time,
+    finishWalk?: Time,
+    status?: string
 }

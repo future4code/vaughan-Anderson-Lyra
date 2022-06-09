@@ -1,38 +1,17 @@
-import express, {Express} from 'express';
+import express from 'express';
 import cors from 'cors';
 import { AddressInfo } from 'net';
-import knex, {Knex} from 'knex';
 import dotenv from 'dotenv';
+import { DogHeroRouter } from './routes/DogHeroRouter';
 
 dotenv.config();
 
-const app: Express = express();
+const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.use("/signup", DogHeroRouter)
 
 
 

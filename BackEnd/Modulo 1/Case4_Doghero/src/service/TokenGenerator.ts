@@ -3,28 +3,33 @@ import * as jwt from "jsonwebtoken";
 
 
 export class TokenGenerator {
-  private static expiresIn: number = 120;
-
-  public generate = (input: AuthenticationData): string => {
-    const newToken = jwt.sign(
+  public generateToken(
+    input: TokenData,   
+    expiresIn: string = process.env.ACCESS_TOKEN_EXPIRES_IN!): string {
+    const token = jwt.sign(
       {
-        id: input.id
+        id: input.id,
+        role: input.role
       },
       process.env.JWT_KEY as string,
       {
-        expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN,
+        expiresIn,
       }
     );
-    return newToken;
-  };
+    return token;
+  }
 
-  public verify(token: string) {
+  public getData(token: string): TokenData {
     const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
-    const result = { id: payload.id, role: payload.role };
+    const result = {
+      id: payload.id,
+      role: payload.role
+    };
     return result;
   }
 }
 
-export interface AuthenticationData {
+interface TokenData {
   id: string;
+  role?: string;
 }

@@ -11,13 +11,13 @@ export class UserTutorBusiness {
     async createTutor(tutor: TutorInputDTO) {
 
         
-        if (!tutor.email || !tutor.password ||  !tutor.name) {
+        if (!tutor.email || !tutor.name || !tutor.password) {
             throw new Error("Todos os campos devem ser preenchidos");
         }
 
         
-        if (tutor.password.length < 6 || tutor.name.length < 15) {
-            throw new Error("O password deve ter no mínimo 6 caracteres e o nome deve ter no maximo 15 caracteres");
+        if (tutor.password.length < 6 || tutor.name.length < 5) {
+            throw new Error("O password deve ter no mínimo 6 caracteres e o nome deve ter no mínimo 5 caracteres");
         }
 
         const idGenerator = new IdGenerator();

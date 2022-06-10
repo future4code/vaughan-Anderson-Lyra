@@ -190,9 +190,3 @@ export interface WalkCalc{
 }
 
 
-export interface EditWalkDTO{
-    id: string,
-    startWalk?: Time,
-    finishWalk?: Time,
-    status?: string
-}

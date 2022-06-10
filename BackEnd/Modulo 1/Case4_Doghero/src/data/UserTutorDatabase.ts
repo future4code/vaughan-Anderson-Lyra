@@ -27,7 +27,7 @@ export class UserTutorDatabase extends BaseDatabase {
   public async getTutorData(offset: number): Promise<TutorOutputDTO[]> {
     try {
       const result = await this.getConnection()
-        .select("id", "name", "phone", "email")
+        .select("id", "name", "email")
         .into(this.TABLE_NAME.TUTOR)
         .orderBy("name", 'asc')
         .limit(5)
@@ -39,8 +39,6 @@ export class UserTutorDatabase extends BaseDatabase {
       throw new Error(error.sqlMessage || error.message);
     }
   }
-
-
 
 }
 

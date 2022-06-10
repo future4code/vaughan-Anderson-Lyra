@@ -1,5 +1,4 @@
-import { UserTutor } from '../model/UserTutor'; 
-import { WalkCalc, WalkOutputDTO, Status, EditWalkDTO } from '../model/DogHeroWalking';
+import { WalkCalc, WalkOutputDTO, } from '../model/DogHeroWalking';
 import moment from "moment";
 import { NotFoundError } from "../error/BaseError";
 import { Time} from "../model/DogHeroWalking";
@@ -113,12 +112,14 @@ export class DogHeroDatabase extends BaseDatabase{
     ): Promise<WalkOutputDTO[]> {
 
         const walk = await this.getConnection().raw(`
-        SELECT w.id as id,
+        SELECT 
+        w.id as id,
         t.id as tutorId,
         w.date_walk as dateWalk,
         w.start_walk as startWalk,
         w.finish_walk as finishWalk,
         w.quantity_dogs as quantityDogs,
+        w.price as price,
         t.name as name
         FROM ${this.TABLE_NAME.WALLKING} w
         LEFT JOIN ${this.TABLE_NAME.TUTOR} t ON t.id = w.id_user_tutor
@@ -136,38 +137,11 @@ export class DogHeroDatabase extends BaseDatabase{
             name: data.name,   
             dateWalk: data.dateWalk,
             startWalk: data.startWalk,
-            quantityDogs: data.quantityDogs
+            quantityDogs: data.quantityDogs,
+            finishWalk: data.finishWalk,
+            price: data.price
         }))
         
     }
-
-    async editStartOrFinishData(walk: EditWalkDTO): Promise<void>{
-    
-            try {
-                await this.getConnection().where("id",walk.id)
-                .update({
-                    start_walk: walk.startWalk,
-                    finish_walk: walk.finishWalk
-            
-                }).into(this.TABLE_NAME.WALLKING)
-                
-            } catch (error:any) {
-                throw new Error(error.sqlMessage || error.message);
-            }
-    }
-
-    async editStatusData(input: EditWalkDTO): Promise<void>{
-    
-        try {
-            await this.getConnection().where("id",input.id)
-            .update({
-                status: input.status
-
-            }).into(this.TABLE_NAME.WALLKING)
-            
-        } catch (error:any) {
-            throw new Error(error.sqlMessage || error.message);
-        }
-}
 
 }

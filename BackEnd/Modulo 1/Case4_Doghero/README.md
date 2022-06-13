@@ -3,6 +3,7 @@
 
 Este é um projeto de Backend, utilizando Typescript, MySQL, além das bibliotecas knexJs e expressJs, desenvolvido para atender aos modelos das APIs.
 
+
 ## DESCRIÇÃO DO PROJETO
 
 O projeto consiste em simular uma plataforma de Passeio de Dogs, onde o usuário (Tutor) poderá criar e acessar informações dos passeios contratado, nas formas de tempo, quantidade de Dogs, hora inicial e final. Sendo criado endpoints GET e POST para simular as demandas.

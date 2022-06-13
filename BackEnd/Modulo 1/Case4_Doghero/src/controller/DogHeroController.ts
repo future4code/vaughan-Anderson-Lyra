@@ -1,8 +1,8 @@
-import { Status, Walk, EditWalkDTO } from './../model/DogHeroWalking';
+import { Walk} from './../model/DogHeroWalking';
 import { Request, Response } from "express";
 import { DogHeroBusiness } from "../business/DogHeroBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
-import { Time, WalkInputDTO } from "../model/DogHeroWalking";
+import { WalkInputDTO } from "../model/DogHeroWalking";
 
 export class DogHeroController {
     async walkCreate(req: Request, res: Response) {
@@ -22,7 +22,7 @@ export class DogHeroController {
             const dogHeroBusiness = new DogHeroBusiness();
            await dogHeroBusiness.createWalk(input);
 
-            res.status(200).send("Walk criado com sucesso.");
+            res.status(200).send("Walkink criado com sucesso.");
 
         } catch (error:any) {
             res.status(400).send({ error: error.message });
@@ -86,51 +86,6 @@ export class DogHeroController {
             })
         }
     }
-
-    async editStartWalkOrFinishWalk(req: Request, res: Response) {
-        try {
-
-            const input: EditWalkDTO ={ 
-                id: req.params.id,
-                startWalk: req.body.startWalk,
-                finishWalk: req.body.finishWalk
-            };
-            
-       
-            const dogHeroBusiness = new DogHeroBusiness();
-            await dogHeroBusiness.editStartOrFinishBusiness(input);
-
-               
-            res.status(200).send("Alterado com sucesso")
-
-        } catch (error:any) { 
-            res.status(400).send({ error: error.message });
-        }
-
-        await BaseDatabase.destroyConnection();
-    }
-
-    async editStatus(req: Request, res: Response) {
-        try {
-
-            const status = Walk.toStatusEnum(req.body.status as string)
-
-            const input: EditWalkDTO ={ 
-                id: req.params.id,
-                status
-            };
-            
-            const dogHeroBusiness = new DogHeroBusiness();
-            await dogHeroBusiness.editStatusBusiness(input);
-
-               
-            res.status(200).send("Status alterado com sucesso")
-
-        } catch (error:any) { 
-            res.status(400).send({ error: error.message });
-        }
-
-        await BaseDatabase.destroyConnection();
-    }
+  
 
 }

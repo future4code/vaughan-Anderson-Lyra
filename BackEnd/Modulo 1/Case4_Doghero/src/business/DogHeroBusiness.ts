@@ -1,4 +1,3 @@
-import { Time, EditWalkDTO, Status } from './../model/DogHeroWalking';
 import { WalkInputDTO } from "../model/DogHeroWalking";
 import { InputError } from "../error/BaseError";
 import moment from "moment";
@@ -79,21 +78,5 @@ export class DogHeroBusiness {
 
         return result
     }
-
-    async editStartOrFinishBusiness(input: EditWalkDTO){
-
-        const wbd = new DogHeroDatabase();
-        const result = await wbd.editStartOrFinishData(input);
-
-        return result
-    }
-
-
-    async editStatusBusiness(input: EditWalkDTO){
-
-        const wbd = new DogHeroDatabase();
-        const result = await wbd.editStatusData(input);
-
-        return result
-    }
+   
 }

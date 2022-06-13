@@ -3,7 +3,7 @@ import * as bcrypt from 'bcryptjs';
 export class HashGenerator {
    public async hash(text: string): Promise<string> {
        
-        const rounds = 20
+        const rounds = 12
         const salt = await bcrypt.genSalt(rounds);
         const result = await bcrypt.hash(text, salt);
 
